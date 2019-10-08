@@ -5,7 +5,10 @@
   "main": "server.js",
   "scripts": {
     "test": "jest",
-    "start:dev": "nodemon src/server.ts"
+    "start": "pm2 dist/cluster.js",
+    "start:dev": "nodemon src/server.ts",
+    "dts-gen": "dts-gen",
+    "build": "tsc -p ."
   },
   "keywords": [
     "koa.js",
@@ -22,7 +25,6 @@
     "class-validator": "^0.10.1",
     "config": "^3.2.3",
     "debug": "^4.1.1",
-    "dotenv": "^8.1.0",
     "graphql": "^14.5.8",
     "graphql-playground-middleware-koa": "^1.6.12",
     "graphql-query-complexity": "^0.4.0",
@@ -45,6 +47,7 @@
     "koa-json": "^2.0.2",
     "koa-morgan": "^1.0.1",
     "koa-mount": "^4.0.0",
+    "koa-ping-healthcheck": "^1.1.0",
     "koa-redis": "^4.0.0",
     "koa-respond": "^2.1.0",
     "koa-router": "^7.4.0",
@@ -54,6 +57,7 @@
     "mongoose": "^5.7.3",
     "nodemailer": "^6.3.0",
     "pg": "^7.12.1",
+    "pm2": "^3.5.1",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^0.17.5",
     "typedi": "^0.8.0",
@@ -62,10 +66,12 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
+    "dotenv": "^8.1.0",
     "@types/bcryptjs": "^2.4.2",
     "@types/chalk": "^2.2.0",
     "@types/config": "^0.0.34",
     "@types/debug": "^4.1.5",
+    "@types/dotenv": "^6.1.1",
     "@types/graphql": "^14.5.0",
     "@types/graphql-query-complexity": "^0.1.4",
     "@types/graphql-upload": "^8.0.3",
@@ -88,11 +94,12 @@
     "@types/node": "^12.7.11",
     "@types/nodemailer": "^6.2.1",
     "@types/uuid": "^3.4.5",
+    "dts-gen": "^0.5.8",
     "nodemon": "^1.19.3",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
   },
   "_moduleAliases": {
-    "@": "src"
+    "@": "dist"
   }
 }

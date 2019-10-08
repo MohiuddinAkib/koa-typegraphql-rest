@@ -1,5 +1,5 @@
+import './dotenv';
 import Koa from 'koa';
-import 'dotenv/config';
 import http from 'http';
 import 'reflect-metadata';
 import config from 'config';
@@ -7,11 +7,11 @@ import logger from 'winston';
 import 'module-alias/register';
 
 // Custom imports
-import useEventListeners from '@/utils/useEventListeners';
 import useLogger from '@/utils/useLogger';
 import useDatabase from '@/utils/useDatabase';
 import useMiddlewares from '@/utils/useMiddlewares';
 import useServerHandler from '@/utils/useServerHandler';
+import useEventListeners from '@/utils/useEventListeners';
 import usePromiseRejectionHandler from '@/utils/usePromiseRejectionHandler';
 
 // Winston logger middleware

@@ -12,6 +12,7 @@ import respond from 'koa-respond';
 import redisStore from 'koa-redis';
 import compress from 'koa-compress';
 import bodyParser from 'koa-bodyparser';
+import health from 'koa-ping-healthcheck';
 import session from 'koa-generic-session';
 import koa404Handler from 'koa-404-handler';
 import errorHandler from 'koa-better-error-handler';
@@ -49,12 +50,24 @@ const developmentMiddlewares: Koa.Middleware[] = [json()];
 
 const productionMiddlewares: Koa.Middleware[] = [helmet(), compress()];
 
-const customMiddlewares: Koa.Middleware[] = [];
+const lastMiddlewares: Koa.Middleware[] = [];
+
+const lastMiddlewaresForDevelopment: Koa.Middleware[] = [];
+
+const lastMiddlewaresForProduction: Koa.Middleware[] = [health()];
 
 const middlewares =
   process.env.NODE_ENV !== 'production'
-    ? defaultMiddlewares.concat(developmentMiddlewares, customMiddlewares)
-    : productionMiddlewares.concat(defaultMiddlewares, customMiddlewares);
+    ? defaultMiddlewares.concat(
+        developmentMiddlewares,
+        lastMiddlewares,
+        lastMiddlewaresForDevelopment
+      )
+    : productionMiddlewares.concat(
+        defaultMiddlewares,
+        lastMiddlewares,
+        lastMiddlewaresForProduction
+      );
 
 export default async (app: Koa) => {
   // override koa's undocumented error handler
