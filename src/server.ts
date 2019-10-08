@@ -1,10 +1,10 @@
 import './dotenv';
 import Koa from 'koa';
+import './moduleAlias';
 import http from 'http';
 import 'reflect-metadata';
 import config from 'config';
 import logger from 'winston';
-import 'module-alias/register';
 
 // Custom imports
 import useLogger from '@/utils/useLogger';
