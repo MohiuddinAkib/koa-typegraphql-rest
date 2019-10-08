@@ -1,0 +1,13 @@
+{
+  "app": {
+    "port": 3000,
+    "cors": {
+      "origin": "http://localhost:3000"
+    },
+    "srcPath": "src",
+    "publicPath": "public",
+    "graphql": {
+      "queryComplexity": 1000
+    }
+  }
+}

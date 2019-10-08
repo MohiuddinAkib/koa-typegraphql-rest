@@ -1,0 +1,9 @@
+{
+  "app": {
+    "port": "PORT",
+    "cors": {
+      "origin": "CORS_ORIGIN"
+    },
+    "secret_keys": "SESSION_KEYS"
+  }
+}
