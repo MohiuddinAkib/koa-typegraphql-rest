@@ -25,3 +25,8 @@ export const LAST_NAME_LENGTH_VALIDATION_ERROR =
 export const EMAIL_VALIDATION_ERROR = 'Email must be a valid email';
 export const PASSWORD_LENGTH_VALIDATION_ERROR =
   'Passowrd should be between $constraint1 and $constraint2';
+
+// Gracefully shutting down
+export const GRACEFULLY_SHUTTING_DOWN = 'Closing server...';
+export const GRACEFULLY_SHUTTED_DOWN = 'Server closed !!! ';
+export const FORCING_SERVER_CLOSE = 'Forcing server close !!!';

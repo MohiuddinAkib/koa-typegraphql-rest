@@ -6,9 +6,9 @@ import useDatabaseListenHandler from './useDatabaseListenHandler';
 
 export default (cb: Function) => {
   createConnection()
-    .then(() => {
+    .then(connection => {
       useDatabaseListenHandler();
-      cb();
+      cb(connection);
     })
     .catch(useDatabaseErrorHandler);
 };
